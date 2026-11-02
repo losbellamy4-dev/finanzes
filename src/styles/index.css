@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme inline {
+  --color-bg: var(--nx-bg);
+  --color-surface: var(--nx-surface);
+  --color-surface-2: var(--nx-surface-2);
+  --color-surface-3: var(--nx-surface-3);
+  --color-fg: var(--nx-fg);
+  --color-muted: var(--nx-muted);
+  --color-subtle: var(--nx-subtle);
+  --color-line: var(--nx-line);
+  --color-line-strong: var(--nx-line-strong);
+  --color-pos: var(--nx-pos);
+  --color-neg: var(--nx-neg);
+  --color-accent: var(--nx-accent);
+  --color-warn: var(--nx-warn);
+  --font-sans: var(--nx-font);
+  --radius-card: 18px;
+}
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --nx-bg: #101216;
+  --nx-surface: #191d24;
+  --nx-surface-2: #222833;
+  --nx-surface-3: #2b3240;
+  --nx-fg: #f5f6f8;
+  --nx-muted: #929baa;
+  --nx-subtle: #6b7383;
+  --nx-line: rgba(255, 255, 255, 0.07);
+  --nx-line-strong: rgba(255, 255, 255, 0.13);
+  --nx-pos: #24c78a;
+  --nx-neg: #f05b65;
+  --nx-accent: #5488f5;
+  --nx-warn: #f5a524;
+  --nx-shadow: 0 1px 0 rgba(255, 255, 255, 0.035) inset, 0 10px 30px -12px rgba(0, 0, 0, 0.55);
+  --nx-glow: radial-gradient(1200px 500px at 10% -10%, rgba(84, 136, 245, 0.1), transparent 60%),
+    radial-gradient(900px 400px at 100% 0%, rgba(36, 199, 138, 0.06), transparent 60%);
+  /* Paleta categórica validada (tema oscuro) */
+  --nx-s1: #3987e5;
+  --nx-s2: #d95926;
+  --nx-s3: #199e70;
+  --nx-s4: #c98500;
+  --nx-s5: #d55181;
+  --nx-s6: #008300;
+  --nx-s7: #9085e9;
+  --nx-s8: #e66767;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --nx-bg: #f3f4f7;
+  --nx-surface: #ffffff;
+  --nx-surface-2: #f0f2f5;
+  --nx-surface-3: #e5e8ee;
+  --nx-fg: #12151a;
+  --nx-muted: #5d6676;
+  --nx-subtle: #8a93a3;
+  --nx-line: rgba(16, 18, 22, 0.08);
+  --nx-line-strong: rgba(16, 18, 22, 0.14);
+  --nx-pos: #0f9a68;
+  --nx-neg: #d63c49;
+  --nx-accent: #3a6ee0;
+  --nx-warn: #c77c00;
+  --nx-shadow: 0 1px 2px rgba(16, 18, 22, 0.04), 0 10px 28px -14px rgba(16, 18, 22, 0.18);
+  --nx-glow: radial-gradient(1200px 500px at 10% -10%, rgba(84, 136, 245, 0.08), transparent 60%);
+  --nx-s1: #2a78d6;
+  --nx-s2: #eb6834;
+  --nx-s3: #1baf7a;
+  --nx-s4: #eda100;
+  --nx-s5: #e87ba4;
+  --nx-s6: #008300;
+  --nx-s7: #6250d6;
+  --nx-s8: #e34948;
+}
+
+:root {
+  --nx-font: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+html,
+body {
+  background: var(--nx-bg);
+  color: var(--nx-fg);
+  font-family: var(--nx-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100dvh;
+  overscroll-behavior-y: none;
+  overflow-x: clip;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+.nx-glow {
+  background-image: var(--nx-glow);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+.nx-card {
+  background: var(--nx-surface);
+  border: 1px solid var(--nx-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--nx-shadow);
+}
+
+.nx-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.nx-scroll::-webkit-scrollbar-thumb {
+  background: var(--nx-surface-3);
+  border-radius: 8px;
+}
+.nx-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@keyframes nx-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes nx-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes nx-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes nx-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes nx-pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@utility anim-fade-up {
+  animation: nx-fade-up 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@utility anim-pop {
+  animation: nx-pop 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@utility anim-sheet {
+  animation: nx-sheet-up 0.28s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@utility anim-fade {
+  animation: nx-fade 0.2s ease both;
+}
+@utility anim-live {
+  animation: nx-pulse-dot 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Recharts: sin contorno de foco por defecto en SVG */
+.recharts-wrapper svg:focus,
+.recharts-surface:focus {
+  outline: none;
+}

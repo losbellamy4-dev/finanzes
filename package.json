@@ -1,0 +1,40 @@
+{
+  "name": "nexus-finance",
+  "private": true,
+  "version": "0.1.0",
+  "description": "NEXUS FINANCE — simulador bancario, bursátil e inmobiliario 100% ficticio",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:all": "npm run typecheck && npm run test && npm run build && npm run test:e2e",
+    "build:html": "node scripts/build-single.mjs"
+  },
+  "dependencies": {
+    "immer": "10.2.0",
+    "lucide-react": "0.577.0",
+    "react": "19.1.10",
+    "react-dom": "19.1.10",
+    "react-is": "19.1.1",
+    "recharts": "3.2.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/vite": "4.1.18",
+    "@types/node": "22.19.0",
+    "@types/react": "19.1.17",
+    "@types/react-dom": "19.1.11",
+    "@vitejs/plugin-react": "5.2.0",
+    "fake-indexeddb": "6.2.7",
+    "tailwindcss": "4.1.18",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "4.1.12"
+  }
+}
